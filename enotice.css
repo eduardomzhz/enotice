@@ -1,0 +1,115 @@
+.en-container {
+  font-family: Helvetica, sans-serif;
+  min-width: 200px;
+  position: fixed;
+  width: 20%;
+}
+.en-top {
+  top: 5px;
+}
+.en-bottom {
+  bottom: 5px;
+}
+.en-right {
+  right: 10px;
+}
+.en-left {
+  left: 10px;
+}
+.en-center {
+  right: 50%;
+  transform: translateX(50%);
+}
+.en-container > .en-element {
+  border-radius: 2px;
+  font-size: 13px;
+  margin: 5px 0;
+  min-height: 1em;
+  padding: 10px 15px;
+  position: relative;
+  transition: opacity 400ms;
+  word-wrap: break-word;
+}
+.en-bottom > .en-element {
+  animation-duration: 1s;
+  animation-name: slideUp;
+  overflow: hidden;
+}
+.en-top > .en-element {
+  animation-duration: 1s;
+  animation-name: slideDown;
+  overflow: hidden;
+}
+.en-element > span {
+  color: #373737;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  font-size: 15px;
+  margin: -2px 5px;
+}
+.en-element > span:hover {
+  color: #f2f2f2;
+}
+.en-white {
+  background: rgba(248, 248, 248, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+.en-gray {
+  background: rgba(120, 120, 120, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(115, 115, 115, 0.9);
+}
+.en-red {
+  background: rgba(235, 60, 60, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(235, 52, 52, 0.9);
+}
+.en-yellow {
+  background: rgba(232, 205, 80, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(225, 198, 70, 0.9);
+}
+.en-green {
+  background: rgba(90, 160, 75, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(78, 150, 62, 0.9);
+}
+.en-blue {
+  background: rgba(25, 90, 140, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(20, 85, 135, 0.9);
+}
+.en-purple {
+  background: rgba(145, 90, 180, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(140, 85, 175, 0.9);
+}
+.en-black {
+  background: rgba(4, 4, 4, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  30% {
+    transform: translateY(10%);
+  }
+  50% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  30% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
