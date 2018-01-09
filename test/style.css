@@ -1,0 +1,46 @@
+body {
+  background:
+    radial-gradient(#ffffff 5px, transparent 3px),
+    radial-gradient(#ffffff 5px, transparent 3px),
+    #164075;
+  background-position: 0 0, 50px 50px;
+  background-size: 100px 100px;
+}
+.content {
+  background: rgb(255, 255, 255, 0.98);
+  border-radius: 5px;
+  height: 10%;
+  min-height: 180px;
+  min-width: 700px;
+  position: absolute;
+  right: 50%;
+  top: 30%;
+  transform: translateX(50%);
+  width: 60%;
+}
+.code {
+  float: right;
+  width: 50%;
+}
+.form {
+  font-family: Helvetica, sans-serif;
+  float: left;
+  width: 45%;
+}
+.form > div {
+  padding: 5px;
+}
+.form > div > input[type="text"] {
+  width: 70%
+}
+.form > div > select {
+  width: 30%
+}
+.form label ~ input,
+.form label ~ select {
+  float: right;
+}
+.form button {
+  position: relative;
+  left: 35%;
+}

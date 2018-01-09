@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>eNotice</title>
+    <link rel="stylesheet" href="../src/enotice.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../src/enotice.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="form">
+        <div>
+          <label>Message:</label>
+          <input type="text" id="message" value="This is an eNotice example!" maxlength="30">
+        </div>
+        <div>
+          <label>Color:</label>
+          <select id="color">
+            <option value="black" selected>Black</option>
+            <option value="blue">Blue</option>
+            <option value="gray">Gray</option>
+            <option value="green">Green</option>
+            <option value="purple">Purple</option>
+            <option value="red">Red</option>
+            <option value="white">White</option>
+            <option value="yellow">Yellow</option>
+          </select>
+        </div>
+        <div>
+          <label>Duration:</label>
+          <input type="number" id="duration" step="100" min="1000" max="10000" value="5000">
+        </div>
+        <div>
+          <label>Position:</label>
+          <select id="position-x">
+            <option value="right" selected>Right</option>
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+          </select>
+          <select id="position-y">
+            <option value="top" selected>Top</option>
+            <option value="bottom">Bottom</option>
+          </select>
+        </div>
+        <div>
+          <label>Stack</label>
+          <select id="stack">
+            <option value="last">Last</option>
+            <option value="first">First</option>
+          </select>
+        </div>
+        <button type="button" id="button">create eNotice</button>
+      </div>
+      <div class="code">
+        <pre>
+let message = <span id="message-value"></span>
+let options = {
+  color: <span id="color-value"></span>,
+  duration: <span id="duration-value"></span>,
+  stack: <span id="stack-value"></span>,
+  position: {
+    x: <span id="x-value"></span>,
+    y: <span id="y-value"></span>
+}
+
+let en = new eNotice(message, options);
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>
