@@ -1,7 +1,7 @@
 /**
  * -------------------------------------------------------------------
  * @author Eduardo Martínez <eduardo.mzhz@gmail.com>
- * @version 1.0 | January 2018
+ * @version 1.1 | January 2018
  * -------------------------------------------------------------------
  */
 
@@ -49,6 +49,33 @@ class eNotice {
         this.container.remove();
       }
     }.bind(this), 400);
+  }
+
+  /**
+   * Converts the instance to an empty object
+   * @method
+   */
+  delete() {
+    this.close();
+    setTimeout(function() {
+      Object.setPrototypeOf(this, null);
+      Object.keys(this).map((property) => {
+        delete this[property];
+      });
+    }.bind(this), 500);
+  }
+
+  /**
+   * Displays the notice
+   * @method
+   */
+  show() {
+    this.element.style.opacity = 1;
+    this.container = this._setContainer();
+    this._insertElement();
+    if (this.duration) {
+      setTimeout(this.close.bind(this), this.duration);
+    }
   }
 
   /**
