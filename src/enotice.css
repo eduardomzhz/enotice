@@ -52,36 +52,36 @@
   color: #f2f2f2;
 }
 .en-white {
-  background: rgba(248, 248, 248, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  background: rgba(248, 248, 248, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.95);
 }
 .en-gray {
-  background: rgba(120, 120, 120, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(115, 115, 115, 0.9);
+  background: rgba(120, 120, 120, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(115, 115, 115, 0.95);
 }
 .en-red {
-  background: rgba(235, 60, 60, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(235, 52, 52, 0.9);
+  background: rgba(235, 60, 60, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(235, 52, 52, 0.95);
 }
 .en-yellow {
-  background: rgba(232, 205, 80, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(225, 198, 70, 0.9);
+  background: rgba(232, 205, 80, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(225, 198, 70, 0.95);
 }
 .en-green {
-  background: rgba(90, 160, 75, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(78, 150, 62, 0.9);
+  background: rgba(90, 160, 75, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(78, 150, 62, 0.95);
 }
 .en-blue {
-  background: rgba(25, 90, 140, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(20, 85, 135, 0.9);
+  background: rgba(25, 90, 140, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(20, 85, 135, 0.95);
 }
 .en-purple {
-  background: rgba(145, 90, 180, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(140, 85, 175, 0.9);
+  background: rgba(145, 90, 180, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(140, 85, 175, 0.95);
 }
 .en-black {
-  background: rgba(4, 4, 4, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9);
+  background: rgba(4, 4, 4, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.95);
   color: #ffffff;
 }
 
