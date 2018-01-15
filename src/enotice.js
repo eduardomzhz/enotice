@@ -25,16 +25,11 @@ class eNotice {
     options = options || {};
     this.message = message || '';
     this.color = options.color || 'black';
-    this.duration = options.duration || null;
+    this.duration = options.duration || 0;
     this.position = options.position || { x: 'right', y: 'bottom' };
     this.stack = options.stack || 'last';
-    this.container = this._setContainer();
     this.element = this._setElement();
-
-    this._insertElement();
-    if (this.duration) {
-      setTimeout(this.close.bind(this), this.duration);
-    }
+    this.show();
   }
 
   /**
@@ -73,7 +68,7 @@ class eNotice {
     this.element.style.opacity = 1;
     this.container = this._setContainer();
     this._insertElement();
-    if (this.duration) {
+    if (this.duration > 0) {
       setTimeout(this.close.bind(this), this.duration);
     }
   }
@@ -98,23 +93,23 @@ class eNotice {
     }
   }
 
-    /**
-     * Defines the HTML container or creates it if not exist
-     * @method
-     * @return [HTMLElement] - Container of the element
-     */
-    _setContainer() {
-      let cont = document.getElementById('enotice-' + this.position.y + '-' + this.position.x);
-      if (cont === null) {
-        cont = document.createElement('div');
-        cont.id = 'enotice-' + this.position.y + '-' + this.position.x;
-        cont.classList.add('en-container');
-        cont.classList.add('en-' + this.position.y);
-        cont.classList.add('en-' + this.position.x);
-        document.body.appendChild(cont);
-      }
-      return cont;
+  /**
+   * Defines the HTML container or creates it if not exist
+   * @method
+   * @return [HTMLElement] - Container of the element
+   */
+  _setContainer() {
+    let container = document.getElementById('enotice-' + this.position.y + '-' + this.position.x);
+    if (container === null) {
+      container = document.createElement('div');
+      container.id = 'enotice-' + this.position.y + '-' + this.position.x;
+      container.classList.add('en-container');
+      container.classList.add('en-' + this.position.y);
+      container.classList.add('en-' + this.position.x);
+      document.body.appendChild(container);
     }
+    return container;
+  }
 
   /**
    * Creates the HTML element of the notice
@@ -122,15 +117,15 @@ class eNotice {
    * @return [HTMLElement] - Notice element
    */
   _setElement() {
-    const elem = document.createElement('div');
-    const btn = document.createElement('span');
-    const txt = document.createTextNode(this.message);
-    btn.innerHTML = '&times';
-    btn.addEventListener('click', this.close.bind(this));
-    elem.appendChild(btn);
-    elem.appendChild(txt);
-    elem.classList.add('en-element');
-    elem.classList.add('en-' + this.color);
-    return elem;
+    const element = document.createElement('div');
+    const button = document.createElement('span');
+    const text = document.createTextNode(this.message);
+    button.innerHTML = '&times';
+    button.addEventListener('click', this.close.bind(this));
+    element.appendChild(button);
+    element.appendChild(text);
+    element.classList.add('en-element');
+    element.classList.add('en-' + this.color);
+    return element;
   }
 }
