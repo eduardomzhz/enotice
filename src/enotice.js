@@ -1,13 +1,14 @@
 /**
  * -------------------------------------------------------------------
  * @author Eduardo Martínez <eduardo.mzhz@gmail.com>
- * @version 1.1 | January 2018
+ * @version 1.2 | January 2018
  * -------------------------------------------------------------------
  */
 
  /**
   * @class
   * @property [string] message - Text of the notice
+  * @property [string] animation - Entrance animation
   * @property [string] color - Border and background color
   * @property [number] duration - Time displayed in milliseconds
   * @property [object] position - Position in window by axis
@@ -24,6 +25,7 @@ class eNotice {
   constructor(message, options) {
     options = options || {};
     this.message = message || '';
+    this.animation = options.animation || 'pulse';
     this.color = options.color || 'black';
     this.duration = options.duration || 0;
     this.position = options.position || { x: 'right', y: 'bottom' };
@@ -125,6 +127,7 @@ class eNotice {
     element.appendChild(button);
     element.appendChild(text);
     element.classList.add('en-element');
+    element.classList.add('en-' + this.animation);
     element.classList.add('en-' + this.color);
     return element;
   }
