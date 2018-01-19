@@ -17,6 +17,7 @@ function initDemo() {
 
 function getOptions() {
   return {
+    animation: document.getElementById('animation').value || 'pulse',
     color: document.getElementById('color').value || 'black',
     duration: document.getElementById('duration').value || null,
     stack: document.getElementById('stack').value || 'last',
@@ -33,6 +34,7 @@ function getMessage() {
 
 function showCode(message, options) {
   document.getElementById('message-value').textContent = '"' + message + '"';
+  document.getElementById('animation-value').textContent = '"' + options.animation + '"';
   document.getElementById('color-value').textContent = '"' + options.color + '"';
   document.getElementById('duration-value').textContent = options.duration || '"null"';
   document.getElementById('stack-value').textContent = '"' + options.stack + '"';

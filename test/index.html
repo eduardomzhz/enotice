@@ -16,6 +16,17 @@
           <input type="text" id="message" value="This is an eNotice example!" maxlength="30">
         </div>
         <div>
+          <label>Animation:</label>
+          <select id="animation">
+            <option value="pulse" selected>Pulse</option>
+            <option value="shake">Shake</option>
+            <option value="slide-up">Slide Up</option>
+            <option value="slide-down">Slide Down</option>
+            <option value="slide-left">Slide Left</option>
+            <option value="slide-right">Slide Right</option>
+          </select>
+        </div>
+        <div>
           <label>Color:</label>
           <select id="color">
             <option value="black" selected>Black</option>
@@ -47,7 +58,7 @@
         <div>
           <label>Stack</label>
           <select id="stack">
-            <option value="last">Last</option>
+            <option value="last" selected>Last</option>
             <option value="first">First</option>
           </select>
         </div>
@@ -57,6 +68,7 @@
         <pre>
 let message = <span id="message-value"></span>
 let options = {
+  animation: <span id="animation-value"></span>,
   color: <span id="color-value"></span>,
   duration: <span id="duration-value"></span>,
   stack: <span id="stack-value"></span>,
