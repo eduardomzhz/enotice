@@ -1,7 +1,7 @@
 /**
  * -------------------------------------------------------------------
  * @author Eduardo Martínez <eduardo.mzhz@gmail.com>
- * @version 1.2 | January 2018
+ * @version 1.3 | January 2018
  * -------------------------------------------------------------------
  */
 
@@ -13,6 +13,8 @@
   * @property [number] duration - Time displayed in milliseconds
   * @property [object] position - Position in window by axis
   * @property [string] stack - Position in the line
+  * @property [boolean] isVisible - Is currently visible
+  * @property [function] onClose - Callback function when closed
   * @property [HTMLElement] container - Container of the element
   * @property [HTMLElement] element - Representation in the DOM
   */
@@ -30,6 +32,7 @@ class eNotice {
     this.duration = options.duration || 0;
     this.position = options.position || { x: 'right', y: 'bottom' };
     this.stack = options.stack || 'last';
+    this.onClose = options.onClose || this.delete;
     this.element = this._setElement();
     this.show();
   }
@@ -39,13 +42,19 @@ class eNotice {
    * @method
    */
   close() {
-    this.element.style.opacity = 0;
-    setTimeout(function() {
-      this.element.remove();
-      if (this.container.children.length === 0) {
-        this.container.remove();
-      }
-    }.bind(this), 400);
+    if (this.isVisible) {
+      this.element.style.opacity = 0;
+      setTimeout(function() {
+        this.element.remove();
+        this.isVisible = document.body.contains(this.element);
+        if (this.container.children.length === 0) {
+          this.container.remove();
+        }
+        if (typeof(this.onClose) === 'function') {
+          this.onClose();
+        }
+      }.bind(this), 400);
+    }
   }
 
   /**
@@ -70,6 +79,7 @@ class eNotice {
     this.element.style.opacity = 1;
     this.container = this._setContainer();
     this._insertElement();
+    this.isVisible = document.body.contains(this.element);
     if (this.duration > 0) {
       setTimeout(this.close.bind(this), this.duration);
     }
