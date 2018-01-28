@@ -15,10 +15,19 @@ let en = new eNotice(message, options);
 ### Options
 Name | Type | Default | Description | Values
 ------------ | ------------- | ------------ | ------------ | ------------
+animation | string | pulse | Animation when appears in screen. | pulse, shake, slide-up, slide-down, slide-left, slide-right
 color | string | black | Border and background color. | black, blue, gray, green, purple, red, white, yellow
 duration | number | null | Time displayed in milliseconds before closing itself, null will not close. | 
 position.x | string | right | Horizontal position in the window. | center, left, right
 position.y | string | bottom | Vertical position in the window. | bottom, top
 stack | string | last | Position to be stacked. | first, last
+onClose | function | this.delete | Callback function to run after close. | 
+
+### Methods
+`close()` - Removes the notification from the DOM.
+
+`delete()` - Converts the instance to an empty object.
+
+`show()` - Shows the notification in the screen.
 
 A demo can be found in  `/test`.
