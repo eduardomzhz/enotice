@@ -38,37 +38,23 @@ class eNotice {
   }
 
   /**
-   * Removes the notice from the DOM
+   * Closes the notice
    * @method
    */
   close() {
     if (this.isVisible) {
       this.element.style.opacity = 0;
-      setTimeout(function() {
-        this.element.remove();
-        this.isVisible = document.body.contains(this.element);
-        if (this.container.children.length === 0) {
-          this.container.remove();
-        }
-        if (typeof(this.onClose) === 'function') {
-          this.onClose();
-        }
-      }.bind(this), 400);
+      setTimeout(this._removeElement.bind(this), 400);
     }
   }
 
   /**
-   * Converts the instance to an empty object
+   * Deletes the instance
    * @method
    */
   delete() {
     this.close();
-    setTimeout(function() {
-      Object.setPrototypeOf(this, null);
-      Object.keys(this).map((property) => {
-        delete this[property];
-      });
-    }.bind(this), 500);
+    setTimeout(this._deleteInstance.bind(this), 500);
   }
 
   /**
@@ -83,6 +69,17 @@ class eNotice {
     if (this.duration > 0) {
       setTimeout(this.close.bind(this), this.duration);
     }
+  }
+
+  /**
+   * Removes the properties and methods form the instance
+   * @method
+   */
+  _deleteInstance() {
+    Object.setPrototypeOf(this, null);
+    Object.keys(this).map((property) => {
+      delete this[property];
+    });
   }
 
   /**
@@ -102,6 +99,21 @@ class eNotice {
       } else {
         this.container.insertBefore(this.element, this.container.firstChild);
       }
+    }
+  }
+
+  /**
+   * Removes the element and container from the DOM
+   * @method
+   */
+  _removeElement() {
+    this.element.remove();
+    this.isVisible = document.body.contains(this.element);
+    if (this.container.children.length === 0) {
+      this.container.remove();
+    }
+    if (typeof(this.onClose) === 'function') {
+      this.onClose();
     }
   }
 
@@ -129,9 +141,9 @@ class eNotice {
    * @return [HTMLElement] - Notice element
    */
   _setElement() {
-    const element = document.createElement('div');
-    const button = document.createElement('span');
-    const text = document.createTextNode(this.message);
+    let element = document.createElement('div');
+    let button = document.createElement('span');
+    let text = document.createTextNode(this.message);
     button.innerHTML = '&times';
     button.addEventListener('click', this.close.bind(this));
     element.appendChild(button);
