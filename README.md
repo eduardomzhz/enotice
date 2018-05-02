@@ -12,6 +12,8 @@ Each notification is an instance of the `eNotice` class the text message and the
 ```javascript
 let en = new eNotice(message, options);
 ```
+Available demo at https://eduardomzhz.github.io/enotice/
+
 ### Options
 Name | Type | Default | Description | Values
 ------------ | ------------- | ------------ | ------------ | ------------
@@ -29,5 +31,3 @@ onClose | function | this.delete | Callback function to run after close. |
 `delete()` - Converts the instance to an empty object.
 
 `show()` - Shows the notification in the screen.
-
-A demo can be found in  `/test`.
