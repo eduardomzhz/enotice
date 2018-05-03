@@ -30,4 +30,3 @@ onClose | function | this.delete | Callback function to run after close. |
 
 `show()` - Shows the notification in the screen.
 
-A demo can be found in  `/test`.
