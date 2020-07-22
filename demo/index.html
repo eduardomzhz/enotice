@@ -62,12 +62,14 @@
             <option value="first">First</option>
           </select>
         </div>
-        <button type="button" id="button">create eNotice</button>
+        <div>
+          <button type="button" id="button">Create eNotice</button>
+        </div>
       </div>
       <div class="code">
         <pre>
-let message = <span id="message-value"></span>
-let options = {
+const message = <span id="message-value"></span>;
+const options = {
   animation: <span id="animation-value"></span>,
   color: <span id="color-value"></span>,
   duration: <span id="duration-value"></span>,
@@ -75,9 +77,9 @@ let options = {
   position: {
     x: <span id="x-value"></span>,
     y: <span id="y-value"></span>
-}
+};
 
-let en = new eNotice(message, options);
+const en = new eNotice(message, options);
         </pre>
       </div>
     </div>
